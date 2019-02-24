@@ -46,7 +46,10 @@ namespace MonsterClass
 
         static void DisplayCloseingScreen()
         {
-
+            Console.Clear();
+            Console.WriteLine("Press any key to exit");
+            Console.ReadKey();
+            Environment.Exit(0);
         }
 
         static void DisplayMenu()
@@ -80,13 +83,15 @@ namespace MonsterClass
 
         static void DisplayHeader(string v)
         {
-            throw new NotImplementedException();
+            Console.Clear();
+            Console.WriteLine("This is the invader hub, welcome");
+            DisplayContinuePrompt();
         }
 
         static void DisplayWelcomeScreen()
         {
             Console.Clear();
-            Console.WriteLine("Welsometo my Monster App");
+            Console.WriteLine("Welcome to my Monster App");
             DisplayContinuePrompt();
         }
 
