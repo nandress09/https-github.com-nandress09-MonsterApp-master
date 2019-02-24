@@ -23,11 +23,11 @@ namespace MonsterClass
             {
                 ID = 357,
                 Name = "Jerry",
-                Age= 475,
+                Age = 475,
                 HasGills = true,
                 IsActive = true,
                 SeaName = "Hisbishu Sea"
-                
+
             };
         }
 
@@ -40,7 +40,7 @@ namespace MonsterClass
                 Age = 800,
                 IsActive = true,
                 HasSpaceship = false
-                
+
             };
         }
 
@@ -52,7 +52,7 @@ namespace MonsterClass
         static void DisplayMenu()
         {
             bool exitMenu = false;
-           
+
 
             do
             {
@@ -63,9 +63,10 @@ namespace MonsterClass
                 int userChoice = int.Parse(Console.ReadLine());
                 switch (userChoice)
                 {
-                    case 1 : 
+                    case 1:
                         break;
-                    case 2: exitMenu = true;
+                    case 2:
+                        exitMenu = true;
                         break;
                     default:
                         Console.WriteLine("Pleae enter a valid choice.");
