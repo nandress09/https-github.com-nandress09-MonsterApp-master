@@ -14,6 +14,10 @@ namespace MonsterClass
         private string _seaName;
 
 
+        public bool IsEvil { get; set; }
+
+
+
 
         public string SeaName
         {

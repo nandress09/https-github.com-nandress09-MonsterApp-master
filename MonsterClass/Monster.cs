@@ -19,7 +19,16 @@ namespace MonsterClass
         private string _name;
         private int _age;
         private bool _isActive;
-        
+        private int _isEvil;
+
+
+        public int IsEvil
+        {
+            get { return _isEvil; }
+            set { _isEvil = value; }
+        }
+
+
 
         public bool IsActive
         {

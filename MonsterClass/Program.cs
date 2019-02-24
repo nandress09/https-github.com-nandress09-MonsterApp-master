@@ -8,6 +8,8 @@ namespace MonsterClass
 {
     class Program
     {
+       
+
         static void Main(string[] args)
         {
             // the order of which the program will execute
@@ -26,7 +28,8 @@ namespace MonsterClass
                 Age = 475,
                 HasGills = true,
                 IsActive = true,
-                SeaName = "Hisbishu Sea"
+                SeaName = "Hisbishu Sea",
+                IsEvil = true
 
             };
         }
@@ -47,7 +50,7 @@ namespace MonsterClass
         static void DisplayCloseingScreen()
         {
             Console.Clear();
-            Console.WriteLine("Press any key to exit");
+            Console.WriteLine("Press any key to exit the Monster APP!");
             Console.ReadKey();
             Environment.Exit(0);
         }
@@ -60,7 +63,37 @@ namespace MonsterClass
             do
             {
                 DisplayHeader("Menu");
-                Console.WriteLine("1)Display Monsters");
+                Console.WriteLine();
+                Console.WriteLine("1)Check out my Monsters");
+                Console.WriteLine("2)Exit");
+                Console.WriteLine("Enter Choice");
+                int userChoice = int.Parse(Console.ReadLine());
+                switch (userChoice)
+                {
+                    case 1: DisplayMonsters();
+                        break;
+                    case 2:
+                        exitMenu = true;
+                        break;
+                    default:
+                        Console.WriteLine("Pleae enter a valid choice.");
+                        DisplayContinuePrompt();
+                        break;
+                }
+
+            } while (!exitMenu);
+
+        }
+        static void DisplayMonsters()
+        {
+            bool exitMenu = false;
+            
+            do
+            {
+                DisplayHeader("Menu");
+                Console.WriteLine();
+                Console.WriteLine("1)Check out my Seamonster");
+                Console.WriteLine("1)Check out my Spacemonster");
                 Console.WriteLine("2)Exit");
                 Console.WriteLine("Enter Choice");
                 int userChoice = int.Parse(Console.ReadLine());
@@ -79,6 +112,10 @@ namespace MonsterClass
 
             } while (!exitMenu);
 
+        }
+        static void DisplaySeamonster()
+        {
+            Seamonster = new Seamonster();
         }
 
         static void DisplayHeader(string v)
