@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace MonsterClass
 {
+    //Monster Classes with Inheritance and Interfaces
+    //In this app, there are two monsters the User can learn about
+    //Be careful, as one monster has a temprament!
+    //Application type: Console
+    //Nicole Andress
+    //2/24/2019 completion date
+    //2/18/2019 start date
     class Program
     {
        
