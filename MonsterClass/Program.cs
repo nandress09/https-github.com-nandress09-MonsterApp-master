@@ -16,7 +16,6 @@ namespace MonsterClass
             DisplayWelcomeScreen();
             DisplayMenu();
             DisplayCloseingScreen();
-
         }
 
         static Seamonster InitializeSeaMonster()
@@ -62,11 +61,11 @@ namespace MonsterClass
 
             do
             {
-                DisplayHeader("Menu");
+                DisplayHeader("This is the invader hub, welcome");
                 Console.WriteLine();
                 Console.WriteLine("1)Check out my Monsters");
                 Console.WriteLine("2)Exit");
-                Console.WriteLine("Enter Choice");
+                Console.WriteLine("\nEnter Choice");
                 int userChoice = int.Parse(Console.ReadLine());
                 switch (userChoice)
                 {
@@ -93,15 +92,19 @@ namespace MonsterClass
                 DisplayHeader("Menu");
                 Console.WriteLine();
                 Console.WriteLine("1)Check out my Seamonster");
-                Console.WriteLine("1)Check out my Spacemonster");
-                Console.WriteLine("2)Exit");
-                Console.WriteLine("Enter Choice");
+                Console.WriteLine("2)Check out my Spacemonster");
+                Console.WriteLine("3)Exit");
+                Console.WriteLine("\nEnter Choice");
                 int userChoice = int.Parse(Console.ReadLine());
                 switch (userChoice)
                 {
                     case 1:
+                        DisplaySeamonster();
                         break;
                     case 2:
+                        MonsterBattle();
+                        break;
+                    case 3:
                         exitMenu = true;
                         break;
                     default:
@@ -113,16 +116,55 @@ namespace MonsterClass
             } while (!exitMenu);
 
         }
+
         static void DisplaySeamonster()
         {
-            Seamonster = new Seamonster();
+            DisplayHeader("My Sea Monster");
+            Seamonster mon = InitializeSeaMonster();
+            Console.WriteLine("Name: " + mon.Name);
+            Console.WriteLine("Age: " + mon.Age);
+            Console.WriteLine("Evil or good: " + mon.IsEvil);
+            Console.WriteLine("Has Gills: " + mon.HasGills);
+            Console.WriteLine("Is monster active: " + mon.IsActive);
+            Console.WriteLine("Name of sea: " + mon.SeaName);
+            DisplayContinuePrompt();
+        }
+        
+        static void MonsterBattle()
+        {
+            DisplayHeader("Monster Battle");
+            SpaceMonster mon = InitializeSpaceMonster();
+            {
+                Console.WriteLine("Monster ID: " + mon.ID);
+                Console.WriteLine("Name: " + mon.Name);
+                Console.WriteLine("Age: " + mon.Age);
+                Console.WriteLine("Is monster active: " + mon.IsActive);
+                Console.WriteLine("Monster has a ship?: " + mon.HasSpaceship);
+                DisplayContinuePrompt();
+
+            };
+            switch (mon.MonsterBattleResponse())
+            {
+                case Monster.MonsterAction.Attack:
+                    Console.WriteLine(mon.Name + " attacked you!");
+                    break;
+                case Monster.MonsterAction.Defend:
+                    Console.WriteLine(mon.Name + " is blocking!");
+                    break;
+                case Monster.MonsterAction.Retreat:
+                    Console.WriteLine(mon.Name + " is running away!");
+                    break;
+                default:
+                    break;
+            }
+
+            DisplayContinuePrompt();
         }
 
-        static void DisplayHeader(string v)
+        static void DisplayHeader(string s)
         {
             Console.Clear();
-            Console.WriteLine("This is the invader hub, welcome");
-            DisplayContinuePrompt();
+            Console.WriteLine(s);
         }
 
         static void DisplayWelcomeScreen()
@@ -134,8 +176,7 @@ namespace MonsterClass
 
         static void DisplayContinuePrompt()
         {
-            Console.Clear();
-            Console.Write("Press any key to continue");
+            Console.Write("\nPress any key to continue");
             Console.ReadKey();
 
         }
